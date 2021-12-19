@@ -21,3 +21,13 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/ABMPracticas/ABMPracticas-ejb/target/
+/ABMPracticas/ABMPracticas-web/target/
+/ABMPractica/target/
+/ABMPracticas/ABMPracticas-ear/target/
+/abmpractica/target/
+/abmpractica/abmpractica-web/target/
+/.metadata/
+/abmpractica/abmpractica-ejb/target/
+/abmpractica-api/target/
+/abmpractica-web/nbproject/private/
