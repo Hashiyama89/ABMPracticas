@@ -14,6 +14,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.Nullable;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -96,6 +97,7 @@ public class PracticaManager {
     
     @PostMapping(value="borrar/{idPractica}")
     public ResponseEntity<Void> borrarPractica(@PathVariable("idPractica") Integer idPractica) {
+        System.out.println("Borrando practica: "+idPractica);
         this.practicaDAO.deleteById(idPractica);
         return ResponseEntity.ok(null);
     }

@@ -1,0 +1,60 @@
+<div>
+
+	<div>
+		<button mat-raised-button>Agregar practica</button>
+
+	<div>
+	<div>
+		<div>Buscar practica:</div>
+
+			
+		<div>	Descripcion: <input type='text' /></div>
+		<div>	Visible: <input type='text'/></div>
+		<div>	Pedible: <input type='text' /></div>
+		<div>	Refine Muestras: <input type='text' /></div>
+		<div>	<button mat-raised-button>Buscar</button><button mat-raised-button>Borrar filtro</button></div>
+	</div>
+
+	<div>
+		<table mat-table [dataSource]="dataSource$" class="mat-elevation-z8">
+
+			<ng-container matColumnDef="idPractica">
+			<th mat-header-cell *matHeaderCellDef> No. </th>
+			<td mat-cell *matCellDef="let practica"> {{practica.position}} </td>
+			</ng-container>
+		
+			<ng-container matColumnDef="descripcion">
+			<th mat-header-cell *matHeaderCellDef> Descripcion </th>
+			<td mat-cell *matCellDef="let practica"> {{practica.descripcion}} </td>
+			</ng-container>
+		
+			<ng-container matColumnDef="visible">
+			<th mat-header-cell *matHeaderCellDef> Visible </th>
+			<td mat-cell *matCellDef="let practica"> {{practica.visible}} </td>
+			</ng-container>
+		
+			<ng-container matColumnDef="pedible">
+			<th mat-header-cell *matHeaderCellDef> Pedible </th>
+			<td mat-cell *matCellDef="let practica"> {{practica.pedible}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="refinaMuestras">
+				<th mat-header-cell *matHeaderCellDef> Refina muestras </th>
+				<td mat-cell *matCellDef="let practica"> {{practica.refinaMuestras}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="acciones">
+				<th mat-header-cell *matHeaderCellDef> Acciones </th>
+				<td mat-cell *matCellDef="let practica"> 
+					<button mat-raised-button (click)="editarPractica(practica)">Editar</button>
+					<button mat-raised-button (click)="asignarArea(practica)">Asignar Area</button>
+					<button mat-raised-button (click)="borrarPractica(practica)">Borrar</button>
+				</td>
+			</ng-container>
+		
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+		</table>
+	</div>
+
+</div>

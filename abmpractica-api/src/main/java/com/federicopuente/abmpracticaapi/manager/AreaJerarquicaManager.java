@@ -11,6 +11,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +25,6 @@ public class AreaJerarquicaManager {
     @Autowired
     private AreaJerarquicaDAO areaJerarquicaDAO;
 
-    
     @PostMapping
     public ResponseEntity<List<AreaJerarquica>> listarPracticas(@RequestBody Optional<AreaJerarquica> areaJerarquica) {
         ResponseEntity<List<AreaJerarquica>> respuesta = null;
