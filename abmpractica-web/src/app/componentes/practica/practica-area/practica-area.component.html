@@ -1,0 +1,53 @@
+<div>
+
+	<div>
+		<div><h2>Practica</h2></div>
+		<div>ID Practica: <b>{{practica?.idPractica}}</b></div>
+		<div>Descripcion: <b>{{practica?.descripcion}}</b></div>
+	</div>
+
+
+	<hr>
+	<div>
+		<div>Areas Asignadas:</div>
+
+		<table style="width:100%">
+			<tr><th style="width:100px">ID Area</th><th  style="text-align: left;">Descripcion</th></tr>
+			<tr *ngFor="let area of areasAsignadas">
+				<td style="width:100px" style="text-align: center;">{{area.idArea}}</td>
+				<td >{{area.descripcion}}</td>
+			</tr>
+		</table>
+
+	</div>
+
+
+	<hr>
+	<div>
+		<div>Buscar area: <input matInput type=text size="70"
+			[(ngModel)]="filtroDescripcion" /></div>
+		<div>
+			<button mat-raised-button (click)="buscarArea()">Buscar area</button>
+		</div>
+
+		<div *ngIf="areasEncontradas && areasEncontradas.length> 0">
+			<div>Areas encontradas:</div>
+			<table style="width:100%">
+				<tr>
+					<th class="accionColumn">Accion</th>
+					<th class="idColumna">ID Area</th>
+					<th style="text-align: left;">Descripcion</th>
+				</tr>
+				<tr *ngFor="let area of areasEncontradas">
+					<td   class="accionColumna">			
+						<button mat-raised-button (click)="asignarArea(area.idArea)">Asignar</button>
+					</td>
+					<td class="idColumna"  style="text-align: center;">{{area.idArea}}</td>
+					<td>{{area.descripcion}}</td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+
+</div>

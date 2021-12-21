@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
 
-const API_ENDPOINT = 'http://localhost:8282/abmpractica-api/'
+const API_ENDPOINT = 'http://localhost:8080/abmpractica-api/'
 
 
 @Injectable({

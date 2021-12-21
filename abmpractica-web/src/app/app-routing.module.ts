@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './componentes/main/main.component'
+import { PracticaAreaComponent } from './componentes/practica/practica-area/practica-area.component';
+import { PracticaEditComponent } from './componentes/practica/practica-edit/practica-edit.component';
 import { PracticaComponent } from './componentes/practica/practica.component'
 
 const routes: Routes = [{
@@ -9,10 +11,20 @@ const routes: Routes = [{
 		component: MainComponent
     },{
 		path:'practica',
-		component: PracticaComponent,
+		children:[{
+			path: '',
+			pathMatch: 'full',
+			component: PracticaComponent
+		},{
+			path: 'agregar',
+			component: PracticaEditComponent
+		},{
+			path: 'editar/:id',
+			component: PracticaEditComponent
+		}]
 	},{
-		path:'area',
-		component: PracticaComponent,
+		path:'area/:id',
+		component: PracticaAreaComponent,
 	}
 ];
 

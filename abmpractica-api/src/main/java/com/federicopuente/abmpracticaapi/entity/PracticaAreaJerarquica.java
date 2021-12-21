@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "practica_area_jerarquica")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "PracticaAreaJerarquica.findAll", query = "SELECT p FROM PracticaAreaJerarquica p")})
+    @NamedQuery(name = "PracticaAreaJerarquica.findByIdPractica", query = "SELECT p FROM PracticaAreaJerarquica p where id_practica = :idPractica")})
 public class PracticaAreaJerarquica implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -74,7 +74,6 @@ public class PracticaAreaJerarquica implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof PracticaAreaJerarquica)) {
             return false;
         }

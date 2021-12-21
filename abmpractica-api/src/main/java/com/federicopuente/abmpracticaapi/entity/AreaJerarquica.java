@@ -1,7 +1,6 @@
 package com.federicopuente.abmpracticaapi.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,10 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 
 @Entity
@@ -22,7 +19,10 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "AreaJerarquica.findAll", query = "SELECT a FROM AreaJerarquica a"),
-    @NamedQuery(name = "AreaJerarquica.findByIdArea", query = "SELECT a FROM AreaJerarquica a WHERE a.idArea = :idArea")})
+    @NamedQuery(name = "AreaJerarquica.findByIdArea", query = "SELECT a FROM AreaJerarquica a WHERE a.idArea = :idArea"),
+    @NamedQuery(name = "AreaJerarquica.findByDescripcionLike", query = "SELECT a FROM AreaJerarquica a where descripcion like CONCAT('%',:descripcion,'%')")
+})
+
 public class AreaJerarquica implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -73,7 +73,6 @@ public class AreaJerarquica implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof AreaJerarquica)) {
             return false;
         }

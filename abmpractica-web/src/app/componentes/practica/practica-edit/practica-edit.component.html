@@ -1,0 +1,69 @@
+<div>
+	<form [formGroup]="formGroup" (ngSubmit)="guardar()">
+
+
+		<div *ngIf="(editMode == true)">
+			<mat-form-field appearance="fill" style="width: 500px">
+				<mat-label>ID Practica</mat-label>
+				<input matInput formControlName="idPractica" [disabled]="true">
+			</mat-form-field>
+		</div>
+		<div>
+
+			<mat-form-field appearance="fill" style="width: 500px">
+				<mat-label>Descripcion</mat-label>
+				<input matInput formControlName="descripcion" required>
+				<mat-error *ngIf="formGroup.get('descripcion').invalid">El campo es
+					obligatorio</mat-error>
+			</mat-form-field>
+
+
+		</div>
+		<div>
+			<mat-form-field appearance="fill">
+				<mat-label>Visible</mat-label>
+				<mat-select formControlName="visible" required>
+					<mat-option value="N">No</mat-option>
+					<mat-option value="S">Si</mat-option>
+				</mat-select>
+				<mat-error *ngIf="formGroup.get('visible').invalid">El campo es obligatorio</mat-error>
+			</mat-form-field>
+
+		</div>
+		<div>
+			<mat-form-field appearance="fill">
+				<mat-label>Pedible</mat-label>
+				<mat-select formControlName="pedible" required>
+					<mat-option value="N">No</mat-option>
+					<mat-option value="S">Si</mat-option>
+				</mat-select>
+				<mat-error *ngIf="formGroup.get('pedible').invalid">El campo es obligatorio</mat-error>
+			</mat-form-field>
+
+		</div>
+		<div>
+			<mat-form-field appearance="fill">
+				<mat-label>Refina muestras</mat-label>
+				<mat-select formControlName="refinaMuestras" required>
+					<mat-option value="N">No</mat-option>
+					<mat-option value="S">Si</mat-option>
+				</mat-select>
+				<mat-error *ngIf="formGroup.get('refinaMuestras').invalid">El campo es
+					obligatorio</mat-error>
+			</mat-form-field>
+
+		</div>
+		<div>
+
+			<button type="submit" mat-raised-button>Guardar</button>
+
+			<button (click)="cancelar()" mat-raised-button>Cancelar</button>
+		</div>
+
+
+	</form>
+
+
+
+
+</div>

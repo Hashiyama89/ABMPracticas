@@ -3,6 +3,7 @@ import { Practica } from './practica.model'
 import { PracticaService } from './practica.service'
 import { Observable} from 'rxjs'
 import {Router,} from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-practica',
@@ -12,29 +13,52 @@ import {Router,} from '@angular/router';
 export class PracticaComponent implements OnInit {
 
 	displayedColumns:string[] = ["idPractica","descripcion","visible","pedible","refinaMuestras","acciones"]
-	dataSource$ :Observable<Practica[]>
+	listaPracticas :Practica[]
+
+	formGroup: FormGroup = new FormGroup({
+		descripcion: new FormControl(null),
+		visible: new FormControl(null),
+		pedible: new FormControl(null),
+		refinaMuestras: new FormControl(null),
+	});
+
+
 
   constructor(public practicaService: PracticaService, private router: Router) { }
 
-  ngOnInit(): void {
-	  this.dataSource$  = this.practicaService.listarPracticas()
+  async ngOnInit() {
+	this.listaPracticas  = await this.practicaService.listarPracticas()
+
   }
+
+   agregarPractica() {
+	   this.router.navigate(['/practica/agregar'])
+   }
 
 
 	editarPractica(practica: Practica) {
-		console.log("editar")
+		this.router.navigate(['practica','editar',practica.idPractica])
 	}
 
-	 borrarPractica(practica: Practica) {
-		this.practicaService
-				.borrarPractica(practica.idPractica)
-				.subscribe((param) => {
-					location.reload();
-		})
+	 async borrarPractica(practica: Practica) {
+		await this.practicaService.borrarPractica(practica.idPractica)
+		location.reload()
 	}
 
 	asignarArea(practica: Practica ) {
+		this.router.navigate(['area', practica.idPractica])
+	}
 
+	async buscarPractica() {
+		const filtro = this.formGroup.value
+		console.log("filtro", filtro)
+		this.listaPracticas  = await this.practicaService.listarPracticas(filtro)
+
+
+	}
+
+	limpiarFiltro() {
+		this.formGroup.reset()
 	}
 
 

@@ -9,11 +9,15 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
+import { PracticaEditComponent } from './practica-edit/practica-edit.component';
+import { PracticaAreaComponent } from './practica-area/practica-area.component';
 
 
 @NgModule({
   declarations: [
-	  PracticaComponent
+	  PracticaComponent,
+	  PracticaEditComponent,
+	  PracticaAreaComponent
   ],
   imports: [
     CommonModule,

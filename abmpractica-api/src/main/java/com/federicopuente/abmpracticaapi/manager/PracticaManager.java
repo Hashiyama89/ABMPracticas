@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.Nullable;
@@ -42,7 +43,9 @@ public class PracticaManager {
     public ResponseEntity<List<Practica>> listarPracticas(@RequestBody Optional<Practica> practica) {
         ResponseEntity<List<Practica>> respuesta = null;
         if (practica.isPresent()) {
-            respuesta = ResponseEntity.ok(this.practicaDAO.findAll(Example.of(practica.get())));
+            respuesta = ResponseEntity.ok(
+                    this.practicaDAO.findAll(Example.of(practica.get(), 
+                    ExampleMatcher.matching().withIgnoreCase().withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING))));
         } else {
             respuesta = ResponseEntity.ok(this.practicaDAO.findAll());
         }
@@ -50,7 +53,7 @@ public class PracticaManager {
         return respuesta;
     }
     
-    @RequestMapping(value="{id}", produces=MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value="{id}", produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Practica> buscarPracticaPorId(@PathVariable("id") Integer id) {
         Optional<Practica> practica = this.practicaDAO.findById(id);
         if (practica.isPresent()) {
@@ -60,6 +63,7 @@ public class PracticaManager {
         }
 
     }
+    
     
     @PostMapping(value="crear")
     public ResponseEntity<Practica> crearPractica(@RequestBody Practica practica) {
@@ -81,7 +85,6 @@ public class PracticaManager {
     @PostMapping(value="modificar")
     public ResponseEntity<Practica> actualizarPractica(@RequestBody Practica practica) {
         ResponseEntity respuesta = null;
-
         try {
             _validarPractica(practica);
             

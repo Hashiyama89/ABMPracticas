@@ -6,3 +6,15 @@ export interface Practica {
 	pedible: string
 
 }
+
+export interface AreaJerarquica {
+	idArea: number,
+	descripcion: string
+}
+
+export interface PracticaAreaJerarquica {
+	idPracticaArea: number,
+	idArea: AreaJerarquica,
+	idPractica: Practica
+
+}
