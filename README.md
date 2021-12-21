@@ -4,12 +4,16 @@
 ## Herramientas utilizadas en el Proyecto
 ### Proyecto abmpractica-web
 [Node 10.13.0]()
+
 [NPM 6.4.1]()
 
 ### Prouecto abmpractica-api
 [JDK 8](https://www.oracle.com/ar/java/technologies/javase/javase8-archive-downloads.html)
+
 [NetBeans 12.5](https://netbeans.apache.org/download/nb125/nb125.html)
+
 [Glassfish 5]()
+
 [MySql 8](https://dev.mysql.com/downloads/file/?id=508935)
 
 
