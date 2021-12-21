@@ -38,4 +38,4 @@ spring.jpa.hibernate.ddl-auto=update
 
 
 ## Arquitectura del proyecto
-![alt text](https://github.com/Hashiyama89/ABMPracticas/arquitectura.png)
+![](https://github.com/Hashiyama89/ABMPracticas/blob/main/arquitectura.png)
