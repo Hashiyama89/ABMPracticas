@@ -5,11 +5,12 @@ El proyecto se compone de dos paquetes:
 
 
 ## Herramientas utilizadas en el Proyecto
-[Node 10.13.0](https://nodejs.org/dist/v10.13.0/node-v10.13.0-x64.msi)
-[JDK 11.0.12](https://www.oracle.com/ar/java/technologies/javase/jdk11-archive-downloads.html)
-[NetBeans 12.5](https://netbeans.apache.org/download/nb125/nb125.html)
-[Glassfish 5.0](https://javaee.github.io/glassfish/download) (Se puede descargar desde NetBeans) Necesita del JDK 1.8 para funcionar
-[MySql 8](https://dev.mysql.com/downloads/file/?id=508935)
+
+*	[Node 10.13.0](https://nodejs.org/dist/v10.13.0/node-v10.13.0-x64.msi)
+*	[JDK 11.0.12](https://www.oracle.com/ar/java/technologies/javase/jdk11-archive-downloads.html)
+*	[NetBeans 12.5](https://netbeans.apache.org/download/nb125/nb125.html)
+*	[Glassfish 5.0](https://javaee.github.io/glassfish/download) (Se puede descargar desde NetBeans) Necesita del JDK 1.8 para funcionar
+*	[MySql 8](https://dev.mysql.com/downloads/file/?id=508935)
 
 
 
