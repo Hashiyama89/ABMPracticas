@@ -2,6 +2,7 @@ package com.federicopuente.abmpracticaapi.entity;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "practica_area_jerarquica")
@@ -32,6 +35,7 @@ public class PracticaAreaJerarquica implements Serializable {
     private AreaJerarquica idArea;
     @JoinColumn(name = "id_practica", referencedColumnName = "id_practica")
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Practica idPractica;
 
     public PracticaAreaJerarquica() {
